@@ -10,11 +10,11 @@ import java.util.Map;
 
 import br.com.fiap.model.ComidaModel;;
 
-public class ProdutoRepository {
+public class ComidaRepository {
 	
 	private static Map<Long, ComidaModel> comidas;
 	
-	public ProdutoRepository() {
+	public ComidaRepository() {
 		comidas = new HashMap<Long, ComidaModel>();
 		
 		ArrayList<String> moquecaIngredientes = new ArrayList<String>();

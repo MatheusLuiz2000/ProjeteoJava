@@ -7,8 +7,7 @@
 <html>
    <head>
       <fmt:setLocale value="pt-BR" />
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
-      <title>Comidas - Adicionar Comida Deliciosa</title>
+      <title>Comidas - Editar essa Comida Deleciosa</title>
       <spring:url value="/resources/css" var="css" />
       <spring:url value="/resources/js" var="js" />
       <spring:url value="/resources/images" var="img" />
@@ -20,54 +19,56 @@
    <body>
       <div class="container">
          <div class="row align-items-center justify-content-center">
-            <h1 class="titulo-pagina mb-4">Adicionar Comida</h1>
+            <h1 class="titulo-pagina mb-4">Editar Comida Deliciosa</h1>
          </div>
       </div>
       <div class="container">
          <div class="col-lg-12 box">
-            <form action="${contextPath}/comida/adicionar" method="post" >
+            <form action="${contextPath}/comida/salvarEditar" method="POST">
+               <input type="hidden" name="id" id="id" value="${comida.id}" />
                <div class="form-group">
                   <label for="exampleInputEmail1">Nome</label>
-                  <input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp" placeholder="Nome da Comida" required>
+                  <input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp" placeholder="Nome da Comida" value="${comida.nome}" required>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Descrição</label>
-                  <input type="text" class="form-control" id="descricao" name="descricao" aria-describedby="emailHelp" placeholder="Descrição da Comida" required>
+                  <input type="text" class="form-control" id="descricao" name="descricao" aria-describedby="emailHelp" placeholder="Descrição da Comida" value="${comida.descricao}" required>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Preço</label>
-                  <input type="number" class="form-control" id="preco" name="preco" aria-describedby="emailHelp" placeholder="Preço da Comida" required>
+                  <input type="number" class="form-control" id="preco" name="preco" aria-describedby="emailHelp" placeholder="Preço da Comida" value="${comida.preco}" required>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">País de Origem</label>
-                  <input type="text" class="form-control" id="pais_origem" name="pais_origem" aria-describedby="emailHelp" placeholder="Pais de origem da Comida" required>
+                  <input type="text" class="form-control" id="pais_origem" name="pais_origem" aria-describedby="emailHelp" placeholder="Pais de origem da Comida" value="${comida.pais_origem}" required>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Calorias</label>
-                  <input type="number" class="form-control" id="total_calorias" name="total_calorias" aria-describedby="emailHelp" placeholder="Total de calorias da Comida" required >
+                  <input type="number" class="form-control" id="total_calorias" name="total_calorias" aria-describedby="emailHelp" placeholder="Total de calorias da Comida" value="${comida.total_calorias}" required >
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Tipo</label>
-                  <input type="text" class="form-control" id="tipo" name="tipo" aria-describedby="emailHelp" placeholder="Tipo da Comida" required>
+                  <input type="text" class="form-control" id="tipo" name="tipo" aria-describedby="emailHelp" placeholder="Tipo da Comida" value="${comida.tipo}" required>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Ingrediente(Separados por Enter)</label>
-                  <textarea type="text" class="form-control" id="myList" name="myList" aria-describedby="emailHelp" placeholder="Ingrediente" rows={8} required></textarea>
+                  <textarea class="form-control" id="myList" name="myList" aria-describedby="emailHelp" placeholder="Ingrediente" required><c:forEach items="${comida.myList}" var="ingredientes">${ingredientes}
+				    </c:forEach></textarea>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Foto 1 ( Passar link )</label>
-                  <input type="text" class="form-control" id="foto" name="foto" value="https://www.saboravida.com.br/wp-content/uploads/2019/09/comidas-tipicas-brasileiras-ganham-destaque-no-salao-do-artesanato-em-sao-paulo.jpg" aria-describedby="emailHelp" placeholder="Foto 1"		>
+                  <input type="text" class="form-control" id="foto" name="foto" value="${comida.foto}" aria-describedby="emailHelp" placeholder="Foto 1"		>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Foto 2 ( Passar link )</label>
-                  <input type="text" class="form-control" id="foto2" name="foto2" value="https://www.saboravida.com.br/wp-content/uploads/2019/09/comidas-tipicas-brasileiras-ganham-destaque-no-salao-do-artesanato-em-sao-paulo.jpg" aria-describedby="emailHelp" placeholder="Foto 2">
+                  <input type="text" class="form-control" id="foto2" name="foto2" value="${comida.foto2}" aria-describedby="emailHelp" placeholder="Foto 2">
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Foto 3 ( Passar link )</label>
-                  <input type="text" class="form-control" id="foto3" name="foto3" value="https://www.saboravida.com.br/wp-content/uploads/2019/09/comidas-tipicas-brasileiras-ganham-destaque-no-salao-do-artesanato-em-sao-paulo.jpg" aria-describedby="emailHelp" placeholder="Foto 3">
+                  <input type="text" class="form-control" id="foto3" name="foto3" value="${comida.foto3}" aria-describedby="emailHelp" placeholder="Foto 3">
                </div>
                <div>
-                  <button type="submit" class="btn btn-primary">Adicionar Nova comida</button>
+                  <button type="submit" class="btn btn-primary">Editar Comida</button>
                   <a href="${contextPath}/"><button type="button" class="btn btn-danger">Cancelar</button></a>
                </div>
             </form>

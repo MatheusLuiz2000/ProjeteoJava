@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.model.ComidaModel;
-import br.com.fiap.repository.ProdutoRepository;
+import br.com.fiap.repository.ComidaRepository;
 
 @Controller
-public class ProdutoController {
+public class ComidaController {
 
-	private ProdutoRepository repository = new ProdutoRepository();
+	private ComidaRepository repository = new ComidaRepository();
 
 	// Busca
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -26,16 +26,6 @@ public class ProdutoController {
 
 		return "comidas";
 	}
-
-	@RequestMapping(value = "/produto/{id}", method = RequestMethod.GET)
-	public String findById(@PathVariable("id") long id, Model model) {
-
-		ComidaModel produtoEncontrado = repository.findById(id);
-
-		model.addAttribute("produto", produtoEncontrado);
-
-		return "produto-detalhe";
-	}
 	
 	@RequestMapping(value = "/adicionarComida", method = RequestMethod.GET)  
 	public String openSave() {
@@ -43,10 +33,12 @@ public class ProdutoController {
 	}
 //
 	@RequestMapping(value = "/comida/adicionar", method = RequestMethod.POST)
-	public String save(ComidaModel ComidaModel) {
+	public String save(ComidaModel ComidaModel, RedirectAttributes redirectAttributes) {
 		repository.save(ComidaModel);
-
-		return "comida-success";
+		
+		redirectAttributes.addFlashAttribute("messageCriar", "Comida Deliciosa criada com sucesso!");
+		
+		return "redirect:/";
 	}
 //	
 	@RequestMapping(value = "/comida/editar/{id}", method = RequestMethod.GET)
@@ -57,7 +49,7 @@ public class ProdutoController {
 
 		model.addAttribute("comida", repository.findById(id));
 		
-		return "produto-editar";
+		return "editarComida";
 	}
 
 	@RequestMapping(value = "/comida/salvarEditar", method = RequestMethod.POST)
