@@ -56,15 +56,15 @@
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Foto 1 ( Passar link )</label>
-                  <input type="text" class="form-control" id="foto" name="foto" value="https://www.saboravida.com.br/wp-content/uploads/2019/09/comidas-tipicas-brasileiras-ganham-destaque-no-salao-do-artesanato-em-sao-paulo.jpg" aria-describedby="emailHelp" placeholder="Foto 1"		>
+                  <input type="text" class="form-control" id="foto" name="foto" aria-describedby="emailHelp" placeholder="Foto 1"		>
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Foto 2 ( Passar link )</label>
-                  <input type="text" class="form-control" id="foto2" name="foto2" value="https://www.saboravida.com.br/wp-content/uploads/2019/09/comidas-tipicas-brasileiras-ganham-destaque-no-salao-do-artesanato-em-sao-paulo.jpg" aria-describedby="emailHelp" placeholder="Foto 2">
+                  <input type="text" class="form-control" id="foto2" name="foto2" aria-describedby="emailHelp" placeholder="Foto 2">
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Foto 3 ( Passar link )</label>
-                  <input type="text" class="form-control" id="foto3" name="foto3" value="https://www.saboravida.com.br/wp-content/uploads/2019/09/comidas-tipicas-brasileiras-ganham-destaque-no-salao-do-artesanato-em-sao-paulo.jpg" aria-describedby="emailHelp" placeholder="Foto 3">
+                  <input type="text" class="form-control" id="foto3" name="foto3" aria-describedby="emailHelp" placeholder="Foto 3">
                </div>
                <div>
                   <button type="submit" class="btn btn-primary">Adicionar Nova comida</button>
