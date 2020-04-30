@@ -1,0 +1,56 @@
+
+.action {
+	margin-top:30px;
+	    display: flex;
+}
+.action button:first-child {
+	margin-right:30px;
+}
+.action img {
+	width:50px;
+}
+
+.action img:first-child {
+	margin-right:30px;
+}
+
+.title {
+	margin-top:50px;
+	font-size:30px;
+}
+.container-info {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-info div {
+	margin-right:50px;
+}
+.pais_origem {
+	margin:40px 0px;
+}
+.pais_origem h3 {
+	margin-top:0px !important;
+}
+.preco, .pais_origem {
+	display:flex;
+	align-items:center;
+}
+
+.preco h4, .pais_origem h4 {
+	margin-bottom:0px !important;
+}
+.preco img, .pais_origem img {
+	width:50px;
+	margin-right:30px;
+}
+
+.lista li {
+	margin:20px 0px;
+}
+
+.carrousel-custom img {
+	height:350px;
+}
